@@ -1,7 +1,6 @@
 {
   "name": "mon-jardin-backend",
   "version": "1.0.0",
-  "description": "Backend for Mon Jardin ERP",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,5 +8,6 @@
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5"
+    // Add other dependencies like pg or supabase-js if needed
   }
 }
