@@ -1,22 +1,44 @@
+// index.js
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // Allow all origins (for dev)
+// For production, restrict to your frontend domain:
+// app.use(cors({ origin: 'https://emmanuelkoros.github.io' }));
 
-// Sample route (replace with your actual routes)
-app.get('/api/orders', (req, res) => {
-  res.json([
-    { order_id: 1, product_id: 101, quantity: 2, price: 20, delivery_location: 'Kahawa Sukari' },
-    { order_id: 2, product_id: 102, quantity: 1, price: 15, delivery_location: 'Ruiru' }
-  ]);
+app.use(express.json()); // Parse JSON bodies
+
+// Sample routes (replace with your actual logic)
+app.get('/orders', (req, res) => {
+  res.json({ message: 'Orders data loaded successfully' });
+});
+
+app.get('/inventory', (req, res) => {
+  res.json({ message: 'Inventory data loaded successfully' });
+});
+
+app.get('/distribution', (req, res) => {
+  res.json({ message: 'Distribution data loaded successfully' });
+});
+
+app.get('/payments', (req, res) => {
+  res.json({ message: 'Payments data loaded successfully' });
+});
+
+app.get('/feedback', (req, res) => {
+  res.json({ message: 'Feedback data loaded successfully' });
+});
+
+// Root route
+app.get('/', (req, res) => {
+  res.send('Mon Jardin ERP Backend is running');
 });
 
 // Start server
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Mon Jardin backend running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
-
